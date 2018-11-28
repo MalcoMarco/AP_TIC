@@ -1,13 +1,153 @@
 <template>
-  <HelloWorld />
+<div>
+    <Slider1/>
+    <v-section>
+      <v-layout row>
+        <v-flex md6>
+          <v-card dark class="text-sm-center pa-3 cyan darken-1">
+            <i class="fas fa-desktop fa-2x"></i> Aula Virtual
+          </v-card>
+        </v-flex>
+        <v-flex md6>
+          <v-card dark class="text-sm-center pa-3 teal darken-1">
+           <i class="fas fa-desktop fa-2x"></i> Videoconferencia
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row class="mt-2">
+        <v-flex md6>
+          <v-card>
+            <iframe width="100%" height="315" src="https://www.youtube.com/embed/nvZv6DiX28k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </v-card>
+        </v-flex>
+        <v-flex md6>
+          <v-card dark height="100%" class="text-sm-justify pa-3 blue darken-1">
+           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iusto enim, perferendis, rerum impedit neque accusantium rem blanditiis facilis esse optio officia reiciendis provident? Quaerat quia itaque molestiae autem perferendis expedita. </p>
+          </v-card>
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap class="mt-2">
+        <v-flex xs12 dark class="red darken-4 pa-2">
+          <h3 class="white--text text-sm-center">NUESTROS PLANES</h3>
+        </v-flex>
+      </v-layout>
+      <v-layout align-space-around justify-center row wrap>
+        <v-flex xs12 sm6  md3 lg3 v-for="(plan, i) in planes" :key="'m'+i">
+            <v-hover>
+                <v-card :color="hover ? 'primary' : ''" slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" height="100%">
+                    <v-card-title primary-title>
+                        <div class="text-xs-center">
+                            <h3 class="headline mb-2" :class="hover ? 'white--text' : 'teal--text'">
+                                <i :class="plan.icon" > </i>
+                            </h3>
+                            <p class="subheading red darken-3 white--text" v-html="plan.name"></p>
+                            <p class="blue-grey lighten-4"><span class="body-2" v-text="plan.sub"></span> </p>
+                        </div>
+                    </v-card-title>
+                    <v-list :class="hover ? 'primary' : ''">
+                        <template v-for="(item, index) in plan.items">
+                            <v-list-tile :key="index+'m'" :class="hover ? 'white--text' : ''">
+                                <v-list-tile-content>
+                                    <span class="caption" v-text="item.name"></span>
+                                </v-list-tile-content>
+                                <v-list-tile-action>
+                                    <i class="fas fa-check " :class="hover ? 'white--text' : 'primary--text' "></i>
+                                </v-list-tile-action>
+                            </v-list-tile>
+                            <v-divider v-if="index + 1 < plan.items.length" :key="index+'mm'" ></v-divider>
+                        </template>
+                    </v-list>
+                    <v-divider light></v-divider>
+                    <v-card-actions class="pa-3">
+                        <div class="text-xs-center" style="display: contents;">
+                            <v-btn round :color="hover ? 'white primary--text' : 'primary'" class="pa-2" style="width: 100%;" dark v-text="plan.precio"></v-btn>
+                        </div>
+                    </v-card-actions>
+                </v-card>
+            </v-hover>
+        </v-flex>       
+
+      </v-layout>
+    </v-section>
+</div>
+
+
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    components: {
-      HelloWorld
-    }
-  }
+import Slider1 from "@/components/home/Slider1";
+export default {
+  components: {
+    Slider1
+  },
+  data:()=>({
+    planes:[
+      {name:'PLAN GRATUITO DOCENTE MÓDULOS DISPONIBLES',sub:'EBR – Educación Superior – CETPRO',
+          items:[ 
+              {name:'Acceso a la Plataforma'},
+              {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
+              {name:'Acceso al Aula Virtual.'},
+              {name:'Creación de cursos.'},
+              {name:'Inscripción de estudiantes en los cursos del Aula Virtual.'},
+              {name:'Módulos de uso y asesoría pedagógica y TIC.'},
+              {name:'Actualización de plataforma.'},
+              {name:'Aplicación móvil.'},
+          ],
+          precio:'OFERTA: S/ 30.00 - Anual',
+          icon:'fas fa-handshake fa-3x'
+      },
+      {name:'PLAN DOCENTE TIC – 2019 – 2021 MÓDULOS DISPONIBLES',sub:'EBR – Educación Superior - CETPRO',
+          items:[ {name:'Configuración de su Institución.'},
+                  {name:'Acceso a la Plataforma'},
+                  {name:'Acceso a la Comunidad con 10 mil sesiones TIC.'},
+                  {name:'Acceso al Aula Virtual.'},
+                  {name:'Creación de cursos.'},
+                  {name:'Inscripción de estudiantes en el curso de su Aula Virtual.'},
+                  {name:'Módulos de uso y asesoría pedagógica y TIC.'},
+                  {name:'Actualización de plataforma.'},
+                  {name:'Aplicación móvil.'},
+              ],
+          precio:'OFERTA: S/ 50.00 - Anual',
+          icon:'fas fa-chalkboard-teacher fa-3x'
+      },
+      {name:'PLAN DOCENTE ESPECIALISTA – TIC MÓDULOS DISPONIBLES',sub:'EBR – Educación Superior - CETPRO',
+          items:[ {name:'Configuración de su I.E'},
+                  {name:'Acceso a la Plataforma'},
+                  {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
+                  {name:'Acceso a Programaciones y unidades.'},
+                  {name:'Acceso a las Sesiones PRO'},
+                  {name:'Acceso al Aula Virtual'},
+                  {name:'Creación de cursos.'},
+                  {name:'Inscripción de docentes y estudiantes en su Aula Virtual'},
+                  {name:'Módulos de uso y asesoría pedagógica y TIC.'},
+                  {name:'Acceso a los cursos y al Software Educativo.'},
+                  {name:'Certificación UNT -360 Horas'},
+                  {name:'Actualización de plataforma.'},
+                  {name:'Aplicación móvil.'},
+              ],
+          precio:'OFERTA: S/ 70.00 - Anual',
+          icon:'fas fa-network-wired fa-3x'
+      },
+      {name:'PLAN INSTITUCIÓN TIC MÓDULOS DISPONIBLES <br>&nbsp;',sub:'I.E.  – Instituto Superior – CETPRO',
+          items:[ {name:'Configuración de su campus y su Institución'},
+                  {name:'Acceso a la Plataforma'},
+                  {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
+                  {name:'Acceso a las Sesiones PRO'},
+                  {name:'Acceso a Programaciones y unidades.'},
+                  {name:'Acceso al Aula Virtual'},
+                  {name:'Creación de cursos'},
+                  {name:'Inscripción de docentes y estudiantes en su Aula Virtual'},
+                  {name:'Módulos de uso y asesoría pedagógica y TIC.'},
+                  {name:'Acceso a los cursos y al Software Educativo.'},
+                  {name:'Certificación UNT -360 Horas'},
+                  {name:'Acceso a libros digitales.'},
+                  {name:'Actualización de plataforma.'},
+                  {name:'Aplicación móvil.'},
+              ],
+          precio:'OFERTA: S/ 100.00 - Anual',
+          icon:'fas fa-hotel fa-3x'
+      }
+  ],
+  })
+}
 </script>

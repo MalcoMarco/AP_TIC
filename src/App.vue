@@ -1,38 +1,43 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+  <v-app id="inspire"  >
+    <NavIzq :drawer.sync="drawer"/>
+    <v-toolbar color="red" dark dense fixed clipped-left app >
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title class="mr-5 align-center">
+        <span class="title">Aula Peru TIC</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
+      <v-layout row align-center style="max-width: 650px">
+        <v-text-field @click:append-icon-cb="() => {}" placeholder="Search..." single-line
+          append-icon="search" color="white" hide-details></v-text-field>
+      </v-layout>
     </v-toolbar>
-
-    <v-content>
-      <HelloWorld/>
+    <v-content class="blue-grey lighten-4">
+      <v-container>
+        <v-layout row>
+          <v-flex sm12>
+          <router-view/>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
+    <footer1/>
   </v-app>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  },
-  data () {
-    return {
-      //
+// @ is an alias to /src
+import NavIzq from "@/components/NavIzq.vue";
+import footer1 from "@/components/footer.vue";
+  export default {
+    name: "APP",
+    components: {
+      NavIzq,footer1
+    },
+    data: () => ({
+      drawer: true,
+    }),
+    props: {
+      source: String
     }
   }
-}
 </script>
