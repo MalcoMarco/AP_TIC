@@ -1,7 +1,8 @@
 <template>
 <div>
     <v-navigation-drawer v-model="drawer" fixed clipped app>
-      <v-img :aspect-ratio="16/9" contain src="https://www.dropbox.com/s/aol7ywcv6svbcjo/nuevologo1.png?dl=0&raw=1">
+      <v-img :aspect-ratio="16/9" contain class="red darken-3"
+       src="https://www.dropbox.com/s/aol7ywcv6svbcjo/nuevologo1.png?dl=0&raw=1">
       </v-img>
 
       <v-list dense>
@@ -16,9 +17,9 @@
           </v-list-tile-content>
         </v-list-tile>
 
-        <v-list-tile class="mt-3" @click="contactanos=!contactanos">
+        <v-list-tile class="mt-3" @click="modalcontactanos=!modalcontactanos">
           <v-list-tile-action>
-            <v-icon>watch_later</v-icon>
+            <v-icon>fas fa-phone</v-icon>
           </v-list-tile-action>
           <v-list-tile-title class="">Contactanos</v-list-tile-title>
         </v-list-tile>
@@ -33,35 +34,24 @@
       </v-list>
     </v-navigation-drawer>
         <!-- MODAL CONTACTO -->
-    <Contactanos :contactanos.sync="modalcontactanos"/>
+    <Contactanos :contactanos="modalcontactanos"/>
   </div>
 </template>
 <script>
 import Contactanos from "@/components/Contactanos.vue";
   export default {
-    components: {
-      Contactanos
-    },
+    props: { drawer: Boolean },
+    components: { Contactanos },
     name:'Navigation1',
     data: () => ({
       modalcontactanos:false,
       items: [
         { icon: 'home', text: 'Inicio',goto:'home' },
-        { icon: 'trending_up', text: 'Nosotros',goto:'about' },
-        { icon: 'history', text: 'Staff',goto:'#' },
-        { icon: 'featured_play_list', text: 'Convenios',goto:'#' },
-        { icon: 'watch_later', text: 'Fotos',goto:'#' }
+        { icon: 'fas fa-users', text: 'Nosotros',goto:'about' },
+        { icon: 'far fa-handshake', text: 'Convenios',goto:'convenios' },
+        { icon: 'fas fa-camera-retro', text: 'Fotos',goto:'fotos' }
       ],
-      items2: [
-        { picture: 28, text: 'Joseph' },
-        { picture: 38, text: 'Apple' },
-        { picture: 48, text: 'Xbox Ahoy' },
-        { picture: 58, text: 'Nokia' },
-        { picture: 78, text: 'MKBHD' }
-      ]
     }),
-    props: {
-      drawer: Boolean
-    }
+    
   }
 </script>

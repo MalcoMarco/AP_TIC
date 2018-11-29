@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="contactanos" width="600">
+  <v-dialog v-model="modal" width="600">
     <v-card class="pa-2">
       <v-card-title primary-title class="layout justify-center">
         <div class="title text-xs-center">¿Tienes dudas o quieres comunicarte con nosotros?</div>
@@ -45,9 +45,15 @@
 export default {
     props:['contactanos'],
     data:()=>({
+      modal:false,
         messenger:'https://www.messenger.com/t/jimmy.salinas.98499',
         gmail:'mailto:juansalinaslindo@gmail.com'
     }),
+    watch:{
+      contactanos: function (val) {
+      this.modal = true
+    },
+    },
     methods:{
         abrir_whatsapp:function(mensaje){
             var link;
