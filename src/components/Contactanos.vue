@@ -29,12 +29,7 @@
         <v-flex xs12 md3 sm3 mx-1>
           <v-card>
             <v-card-text class="text-xs-center">
-              <v-btn
-                fab
-                dark
-                color="green accent-4"
-                @click="abrir_whatsapp('Quiero Mas Informacion')"
-              >
+              <v-btn fab dark color="green accent-4" @click="abrir_whatsapp('Quiero Mas Informacion')">
                 <v-icon dark v-text="'fab fa-whatsapp fa-2x'"></v-icon>
               </v-btn>
               <br>WhatsApp

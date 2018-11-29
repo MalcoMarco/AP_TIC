@@ -1,25 +1,25 @@
 <template>
-    <v-layout align-space-around justify-center row wrap>
+    <v-layout align-space-around justify-center row wrap class="mt-2">
         <v-flex xs12 sm6  md3 lg3 v-for="(plan, i) in planes" :key="'m'+i">
-            <v-hover>
-                <v-card :color="hover ? 'primary' : ''" slot-scope="{ hover }" :class="`elevation-${hover ? 12 : 2}`" height="100%">
+
+                <v-card height="100%">
                     <v-card-title primary-title>
                         <div class="text-xs-center">
-                            <h3 class="headline mb-2" :class="hover ? 'white--text' : 'teal--text'">
+                            <h3 class="headline mb-2 blue--text text--darken-3">
                                 <i :class="plan.icon" > </i>
                             </h3>
                             <p class="subheading red darken-3 white--text" v-html="plan.name"></p>
                             <p class="blue-grey lighten-4"><span class="body-2" v-text="plan.sub"></span> </p>
                         </div>
                     </v-card-title>
-                    <v-list :class="hover ? 'primary' : ''">
+                    <v-list>
                         <template v-for="(item, index) in plan.items">
-                            <v-list-tile :key="index+'m'" :class="hover ? 'white--text' : ''">
+                            <v-list-tile :key="index+'m'">
                                 <v-list-tile-content>
                                     <span class="caption" v-text="item.name"></span>
                                 </v-list-tile-content>
                                 <v-list-tile-action>
-                                    <i class="fas fa-check " :class="hover ? 'white--text' : 'primary--text' "></i>
+                                    <i class="fas fa-check" ></i>
                                 </v-list-tile-action>
                             </v-list-tile>
                             <v-divider v-if="index + 1 < plan.items.length" :key="index+'mm'" ></v-divider>
@@ -28,11 +28,10 @@
                     <v-divider light></v-divider>
                     <v-card-actions class="pa-3">
                         <div class="text-xs-center" style="display: contents;">
-                            <v-btn round :color="hover ? 'white primary--text' : 'primary'" class="pa-2" style="width: 100%;" dark v-text="plan.precio"></v-btn>
+                            <v-btn round class="pa-2 blue darken-4" style="width: 100%;" dark v-text="plan.precio"></v-btn>
                         </div>
                     </v-card-actions>
                 </v-card>
-            </v-hover>
         </v-flex> 
       </v-layout>    
 </template>

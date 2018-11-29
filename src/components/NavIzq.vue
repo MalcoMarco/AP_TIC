@@ -1,6 +1,9 @@
 <template>
 <div>
     <v-navigation-drawer v-model="drawer" fixed clipped app>
+      <v-img :aspect-ratio="16/9" contain src="https://www.dropbox.com/s/aol7ywcv6svbcjo/nuevologo1.png?dl=0&raw=1">
+      </v-img>
+
       <v-list dense>
         <v-list-tile v-for="item in items" :key="item.text" @click="$router.push({name:item.goto})">
           <v-list-tile-action>
@@ -30,7 +33,7 @@
       </v-list>
     </v-navigation-drawer>
         <!-- MODAL CONTACTO -->
-    <Contactanos :contactanos.sync="contactanos"/>
+    <Contactanos :contactanos.sync="modalcontactanos"/>
   </div>
 </template>
 <script>
@@ -41,7 +44,7 @@ import Contactanos from "@/components/Contactanos.vue";
     },
     name:'Navigation1',
     data: () => ({
-      contactanos:false,
+      modalcontactanos:false,
       items: [
         { icon: 'home', text: 'Inicio',goto:'home' },
         { icon: 'trending_up', text: 'Nosotros',goto:'about' },
