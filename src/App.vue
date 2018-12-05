@@ -13,7 +13,6 @@
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat href="https://www.sitaav.org"><i class="fas fa-desktop pr-1"></i> Sitaav</v-btn>
       </v-toolbar-items>
- 
     </v-toolbar>
     <v-content class="blue-grey lighten-4">
       <v-container>

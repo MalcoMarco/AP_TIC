@@ -21,12 +21,12 @@
       <v-layout row wrap class="mt-2">
         <v-flex xs12 md12 lg6 xl6>
           <v-card>
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/hoB0WgCop18" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="100%" height="315" :src="video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </v-card>
         </v-flex>
         <v-flex xs12 md12 lg6 xl6>
           <v-card height="100%"  class="text-sm-justify px-1">
-            <img  width="100%" height="315" src="https://www.dropbox.com/s/pdy5ohw7m9e30xj/CONTACTANOS.gif?dl=0&raw=1" alt="">
+            <img  width="100%" height="315" :src="imagen" alt="contactos">
           </v-card>
         </v-flex>
       </v-layout>
@@ -46,9 +46,25 @@ import Slider1 from "@/components/home/Slider1";
 import Planes1 from "@/components/home/Planes";
 export default {
   name: "home",
-  components: {
-    Slider1,
-    Planes1
+  components: { Slider1, Planes1 },
+  data:()=>({
+    video:'',
+    imagen:''
+  }),
+  created:function(){
+    this.get_data()
+  },
+  methods:{
+    get_data:function(){
+      axios.get("https://admin.aulaperu.edu.pe/api/home_items")
+      .then(response => {
+        this.video=response.data.data.video.embed
+        this.imagen=response.data.data.imgcontacto.imagen
+      })
+      .catch(error => {});
+    }
   }
+  
+
 };
 </script>
