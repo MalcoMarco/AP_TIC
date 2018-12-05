@@ -3,17 +3,17 @@
     <Slider1/>
       <v-layout row wrap>
         <v-flex xs12 md6 lg4>
-          <v-card dark class="text-sm-center pa-3 teal darken-1">
+          <v-card dark class="text-sm-center pa-3 grey darken-1">
             <i class="fas fa-desktop fa-2x"></i> Plataforma
           </v-card>
         </v-flex>
         <v-flex xs12 md6 lg4>
-          <v-card dark class="text-sm-center pa-3 blue darken-4">
+          <v-card dark class="text-sm-center pa-3 cyan darken-2">
            <i class="fas fa-chalkboard-teacher fa-2x"></i> Aula Virtual
           </v-card>
         </v-flex>
         <v-flex xs12 md12 lg4>
-          <v-card dark class="text-sm-center pa-3 teal darken-1">
+          <v-card dark class="text-sm-center pa-3 grey darken-1">
            <i class="fas fa-people-carry fa-2x"></i> Comunidad Educativa
           </v-card>
         </v-flex>

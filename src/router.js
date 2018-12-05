@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Fotos from "./views/fotos.vue";
-import Convenios from "./views/Convenios.vue";
+import Convenios from "./views/convenios.vue";
 
 Vue.use(Router);
 
@@ -17,6 +17,18 @@ export default new Router({
       path: "/fotos",
       name: "fotos",
       component: Fotos
+    },
+    {
+      path: "/nosotros",
+      name: "nosotros",
+      component: () =>
+        import(/* webpackChunkName: "nosotros" */ "./views/nosotros.vue")
+    },
+    {
+      path: "/recursos",
+      name: "recursos",
+      component: () =>
+        import("./views/recursoseducativos.vue")
     },
     {
       path: "/Convenios",

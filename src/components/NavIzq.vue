@@ -47,9 +47,10 @@ import Contactanos from "@/components/Contactanos.vue";
       modalcontactanos:false,
       items: [
         { icon: 'home', text: 'Inicio',goto:'home' },
-        { icon: 'fas fa-users', text: 'Nosotros',goto:'about' },
+        { icon: 'fas fa-users', text: 'Nosotros',goto:'nosotros' },
         { icon: 'far fa-handshake', text: 'Convenios',goto:'convenios' },
-        { icon: 'fas fa-camera-retro', text: 'Fotos',goto:'fotos' }
+        { icon: 'fas fa-camera-retro', text: 'Fotos',goto:'fotos' },
+        { icon: 'far fa-file-archive', text: 'Recursos Educativos',goto:'recursos' },
       ],
     }),
     

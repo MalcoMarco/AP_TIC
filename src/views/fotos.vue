@@ -1,24 +1,28 @@
 <template>
 <v-card flat tile v-if="albums.data">
+  <h2 class="text-sm-center px-2 white--text red darken-4">Fotos y Videos</h2>
     <v-container
-      v-for="album in albums.data" :key="album.id" fluid grid-list-md grey lighten-4 >
-      <v-subheader>{{ album.nombre }}</v-subheader>
+      v-for="album in albums.data" :key="album.id" fluid grid-list-md grey lighten-3>
+      <v-subheader class="font-weight-boldfont-weight-black font-italic">{{ album.nombre }}</v-subheader>
 
       <v-layout row wrap>
-        <v-spacer></v-spacer>
         <v-flex v-for="foto in album.fotos" :key="'f'+foto.id"
-            v-if="foto.tipo=='foto'"
-          xs12 sm6 md4>
+             xs12 sm6 md4>
           <v-card>
-            <v-img :src="foto.link" height="300px">
+            <div v-if="foto.tipo=='foto'">
+              <v-img :src="foto.link" height="300px">
                 <div class="layout align-end fill-height px-2">
-                    <h5 class="body-1 white--text text-sm-center px-2"
-                v-text="foto.descripcion"
-                style="background-color: #03030366;"></h5>
+                    <h5 class="body-1 white--text text-sm-center px-2" v-text="foto.descripcion"
+                    style="background-color: #03030366;"></h5>
                 </div>
-              
-            </v-img>
-
+              </v-img>
+            </div>
+            <div v-else>
+               <video width="100%" height="300px" controls>
+                  <source :src="foto.link" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </div>
             <v-card-actions class="white justify-center">
               <v-btn @click="share_fb(foto.link)" color="indigo" class="white--text" fab icon small >
                 <v-icon>fab fa-facebook</v-icon>
@@ -28,7 +32,11 @@
               </v-btn>
             </v-card-actions>
           </v-card>
+
         </v-flex>
+
+        
+
       </v-layout>
     </v-container>
   </v-card>
