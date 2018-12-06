@@ -8,6 +8,20 @@
     <section class="py-1">
       <v-layout wrap class="my-0" align-center>
         <v-flex xs12>
+          <h3 class="px-3">Nuestro Equipo</h3>
+
+          <v-layout row wrap justify-center>
+            <v-flex xs12 md12 lg4 xl4><v-card> 
+              <v-img max-height="200px" src="https://www.dropbox.com/s/yuqtb2axhxt6ouq/Foto%2001%20-%20Equipo%2001%20-%20F.jpg?dl=0&raw=1"
+              contain color="grey"></v-img> 
+              </v-card></v-flex>
+            <v-flex xs12 md12 lg4 xl4><v-card> 
+              <v-img max-height="200px" src="https://www.dropbox.com/s/cqokgcqxgrncq6a/Foto%2002%20-%20Equipo%2002%20-%20F.jpg?dl=0&raw=1" 
+              contain color="grey"></v-img> 
+              </v-card></v-flex>
+          </v-layout>
+        </v-flex>
+        <v-flex xs12>
           <v-container grid-list-xl>
             <v-layout row wrap align-center>
               <v-flex xs12 md4 v-for="(item, k) in sitaav" :key="'s'+k">
@@ -92,6 +106,7 @@
 </template>
 <script>
 export default {
+/* eslint-disable */
   data: () => ({
     imgLogo: "https://www.dropbox.com/s/aol7ywcv6svbcjo/nuevologo1.png?dl=0&raw=1",
     sitaav:[

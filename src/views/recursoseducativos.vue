@@ -86,6 +86,7 @@
 </template>
 <script>
 export default {
+    /*eslint no-console: "error"*/
     name:'recursosEducativos',
     data:()=>({
         modalRevista:false,
@@ -111,7 +112,7 @@ export default {
             axios.get(url).then(response => {
                 this.inicials = response.data.data.contenedors;
             }).catch(error => {
-                console.log(this.errors);
+                console.log(error);
             });
         },
         get_primaria:function(){
@@ -119,7 +120,7 @@ export default {
             axios.get(url).then(response => {
                 this.primarias = response.data.data.contenedors;
             }).catch(error => {
-                console.log(this.errors);
+                console.log(error)
             });
         },
         get_secundaria:function(){
@@ -127,10 +128,9 @@ export default {
             axios.get(url).then(response => {
                 this.secundarias = response.data.data.contenedors;
             }).catch(error => {
-                console.log(this.errors);
-            });
-        },
+          console.log(error);
+        });
     }
-}
+  }
+};
 </script>
-

@@ -25,14 +25,19 @@
           </v-card>
         </v-flex>
         <v-flex xs12 md12 lg6 xl6>
-          <v-card height="100%"  class="text-sm-justify px-1">
-            <img  width="100%" height="315" :src="imagen" alt="contactos">
+          <v-card v-if="imagen.imagen" height="100%"  class="text-sm-justify px-1">
+            <v-img :src="imagen.imagen" height="315px">
+                <div class="layout align-end fill-height px-2">
+                    <h5 class="body-1 white--text text-sm-center px-2" v-text="imagen.descripcion"
+                    style="background-color: #03030366; width: 100%;"></h5>
+                </div>
+            </v-img>
           </v-card>
         </v-flex>
       </v-layout>
       <v-layout row wrap class="mt-2">
         <v-flex xs12 dark class="red darken-4 pa-2">
-          <h3 class="white--text text-sm-center">NUESTROS PLANES</h3>
+          <h3 class="white--text text-sm-center">NUESTROS PLANES 2019</h3>
         </v-flex>
       </v-layout>
       <v-container  grid-list-sm>
@@ -45,11 +50,12 @@
 import Slider1 from "@/components/home/Slider1";
 import Planes1 from "@/components/home/Planes";
 export default {
+/*eslint no-console: "error"*/
   name: "home",
   components: { Slider1, Planes1 },
   data:()=>({
     video:'',
-    imagen:''
+    imagen:[],
   }),
   created:function(){
     this.get_data()
@@ -59,12 +65,12 @@ export default {
       axios.get("https://admin.aulaperu.edu.pe/api/home_items")
       .then(response => {
         this.video=response.data.data.video.embed
-        this.imagen=response.data.data.imgcontacto.imagen
+        this.imagen=response.data.data.imgcontacto
       })
-      .catch(error => {});
+      .catch(error => {
+        console.log(error);
+        });
     }
   }
-  
-
 };
 </script>

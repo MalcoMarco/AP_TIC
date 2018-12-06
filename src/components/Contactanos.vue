@@ -56,7 +56,7 @@ export default {
     },
     methods:{
         abrir_whatsapp:function(mensaje){
-            var link;
+            var link="/";
             if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
                 link="https://api.whatsapp.com/send?phone=51943621493&text="+mensaje
             }else{

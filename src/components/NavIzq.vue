@@ -1,11 +1,11 @@
 <template>
 <div>
-    <v-navigation-drawer v-model="drawer" fixed clipped app>
-      <v-img :aspect-ratio="16/9" contain class="red darken-3"
-       src="https://www.dropbox.com/s/aol7ywcv6svbcjo/nuevologo1.png?dl=0&raw=1">
-      </v-img>
+    <v-navigation-drawer v-model="drawer" fixed clipped class="blue-grey lighten-4" app>
+      <!-- <v-img :aspect-ratio="16/9" contain class="red darken-3"
+       :src="logonav">
+      </v-img> -->
 
-      <v-list dense>
+      <v-list dense id="nav-izq">
         <v-list-tile v-for="item in items" :key="item.text" @click="$router.push({name:item.goto})">
           <v-list-tile-action>
             <v-icon>{{ item.icon }}</v-icon>
@@ -45,6 +45,7 @@ import Contactanos from "@/components/Contactanos.vue";
     name:'Navigation1',
     data: () => ({
       modalcontactanos:false,
+      logonav:'https://www.dropbox.com/s/128u0uqm8nbivs2/LOGO%20index.png?dl=0&raw=1',
       items: [
         { icon: 'home', text: 'Inicio',goto:'home' },
         { icon: 'fas fa-users', text: 'Nosotros',goto:'nosotros' },
@@ -56,3 +57,6 @@ import Contactanos from "@/components/Contactanos.vue";
     
   }
 </script>
+<style scoped>
+  #nav-izq > div > a > div > i{color:#c62828;}
+</style>

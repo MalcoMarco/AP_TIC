@@ -1,6 +1,6 @@
 <template>
     <v-layout align-space-around justify-center row wrap class="mt-2">
-        <v-flex xs12 sm6  md3 lg3 v-for="(plan, i) in planes" :key="'m'+i">
+        <v-flex xs12 sm6 md4 lg4 v-for="(plan, i) in planes" :key="'m'+i">
 
                 <v-card height="100%">
                     <v-card-title primary-title>
@@ -51,7 +51,7 @@ export default {
               {name:'Actualización de plataforma.'},
               {name:'Aplicación móvil.'},
           ],
-          precio:'OFERTA: S/ 30.00 - Anual',
+          precio:'OFERTA: S/ 00.00 - Anual',
           icon:'fas fa-handshake fa-3x'
       },
       {name:'PLAN DOCENTE TIC – 2019 – 2021 MÓDULOS DISPONIBLES',sub:'EBR – Educación Superior - CETPRO',
@@ -86,7 +86,7 @@ export default {
           precio:'OFERTA: S/ 70.00 - Anual',
           icon:'fas fa-network-wired fa-3x'
       },
-      {name:'PLAN INSTITUCIÓN TIC MÓDULOS DISPONIBLES <br>&nbsp;',sub:'I.E.  – Instituto Superior – CETPRO',
+     /* {name:'PLAN INSTITUCIÓN TIC MÓDULOS DISPONIBLES <br>&nbsp;',sub:'I.E.  – Instituto Superior – CETPRO',
           items:[ {name:'Configuración de su campus y su Institución'},
                   {name:'Acceso a la Plataforma'},
                   {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
@@ -104,7 +104,7 @@ export default {
               ],
           precio:'OFERTA: S/ 100.00 - Anual',
           icon:'fas fa-hotel fa-3x'
-      }
+      }*/
   ],
   })
 }
