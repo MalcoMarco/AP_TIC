@@ -1,7 +1,6 @@
 <template>
     <v-layout align-space-around justify-center row wrap class="mt-2">
         <v-flex xs12 sm6 md4 lg4 v-for="(plan, i) in planes" :key="'m'+i">
-
                 <v-card height="100%">
                     <v-card-title primary-title>
                         <div class="text-xs-center">
@@ -32,13 +31,15 @@
                         </div>
                     </v-card-actions>
                 </v-card>
-        </v-flex> 
+        </v-flex>
       </v-layout>    
 </template>
 
 <script>
 export default {
   data:()=>({
+      //db:'n',
+      //planes:[],
     planes:[
       {name:'PLAN GRATUITO DOCENTE MÓDULOS DISPONIBLES',sub:'EBR – Educación Superior – CETPRO',
           items:[ 
@@ -86,30 +87,50 @@ export default {
           precio:'OFERTA: S/ 70.00 - Anual',
           icon:'fas fa-network-wired fa-3x'
       },
-     /* {name:'PLAN INSTITUCIÓN TIC MÓDULOS DISPONIBLES <br>&nbsp;',sub:'I.E.  – Instituto Superior – CETPRO',
-          items:[ {name:'Configuración de su campus y su Institución'},
-                  {name:'Acceso a la Plataforma'},
-                  {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
-                  {name:'Acceso a las Sesiones PRO'},
-                  {name:'Acceso a Programaciones y unidades.'},
-                  {name:'Acceso al Aula Virtual'},
-                  {name:'Creación de cursos'},
-                  {name:'Inscripción de docentes y estudiantes en su Aula Virtual'},
-                  {name:'Módulos de uso y asesoría pedagógica y TIC.'},
-                  {name:'Acceso a los cursos y al Software Educativo.'},
-                  {name:'Certificación UNT -360 Horas'},
-                  {name:'Acceso a libros digitales.'},
-                  {name:'Actualización de plataforma.'},
-                  {name:'Aplicación móvil.'},
-              ],
-          precio:'OFERTA: S/ 100.00 - Anual',
-          icon:'fas fa-hotel fa-3x'
-      }*/
-  ],
-  })
+        //  {name:'PLAN INSTITUCIÓN TIC MÓDULOS DISPONIBLES <br>&nbsp;',sub:'I.E.  – Instituto Superior – CETPRO',
+        //       items:[ {name:'Configuración de su campus y su Institución'},
+        //               {name:'Acceso a la Plataforma'},
+        //               {name:'Acceso a la Comunidad con 10 mil sesiones TIC'},
+        //               {name:'Acceso a las Sesiones PRO'},
+        //               {name:'Acceso a Programaciones y unidades.'},
+        //               {name:'Acceso al Aula Virtual'},
+        //               {name:'Creación de cursos'},
+        //               {name:'Inscripción de docentes y estudiantes en su Aula Virtual'},
+        //               {name:'Módulos de uso y asesoría pedagógica y TIC.'},
+        //               {name:'Acceso a los cursos y al Software Educativo.'},
+        //               {name:'Certificación UNT -360 Horas'},
+        //               {name:'Acceso a libros digitales.'},
+        //               {name:'Actualización de plataforma.'},
+        //               {name:'Aplicación móvil.'},
+        //           ],
+        //       precio:'OFERTA: S/ 100.00 - Anual',
+        //       icon:'fas fa-hotel fa-3x'
+        //   }
+        ],
+    
+  }),
+    created:function(){
+      //this.get_planes()
+  },
+    methods:{
+      get_planes:function(){
+        var url="https://www.beta.sitaav.org/json/planes.json"
+        var config = {
+            headers: {'Content-Length': 0,
+            //'Content-Type': 'application/json'
+             'Content-Type': 'text/plain'
+             },
+            responseType: 'text'
+        }
+        axios.get(url,{m:'holi'},config).then(response=>{
+            console.log('good')
+            this.planes=response.data.planes
+        }).catch(error=>{
+            console.log('no planes')
+            console.log(error)
+        });
+      }
+  }
 }
 </script>
 
-<style>
-
-</style>
