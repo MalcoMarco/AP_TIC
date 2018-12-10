@@ -1,6 +1,6 @@
 <template>
 <v-card flat tile v-if="albums.data">
-  <h2 class="text-sm-center px-2 white--text red darken-4">Fotos y Videos</h2>
+  <h2 class="text-sm-center px-2 white--text red darken-4"><i class="far fa-images"></i> Fotos y Videos</h2>
     <v-container
       v-for="album in albums.data" :key="album.id" fluid grid-list-md grey lighten-3>
       <v-subheader class="font-weight-boldfont-weight-black font-italic">{{ album.nombre }}</v-subheader>

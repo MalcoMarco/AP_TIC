@@ -5,7 +5,13 @@
       :key="i"
       :src="item.imagen"
       contain
-    ></v-carousel-item>
+    >
+      <v-layout row wrap align-end fill-height justify-center pb-5 v-if="item.formulario">
+        <v-flex xs12 text-xs-center >
+          <v-btn color="purple darken-4" large @click="inscribir(item)">INSCRÍBETE AQUÍ!</v-btn>
+        </v-flex>
+      </v-layout>
+    </v-carousel-item>
   </v-carousel>
 </template>
 <script>
@@ -13,29 +19,16 @@
     created:function(){
       this.get_carrusel()
     },
-    data () {
+    data: function() {
       return {
-        items: [
-          /*{
-            imagen: 'https://www.dropbox.com/s/r7h8k3x8y490njm/hoy2.png?dl=0&raw=1'
-          },
-          {
-            imagen: 'https://www.dropbox.com/s/p4qq1vdrkcblgq7/hoy1.png?dl=0&raw=1'
-          },
-          {
-            imagen: 'https://www.dropbox.com/s/ie8pow366mgfecl/AFI1.png?dl=0&raw=1'
-          },
-          {
-            imagen: 'https://www.dropbox.com/s/bnpapcsluy9i0h7/AFI2.png?dl=0&raw=1'
-          },
-          {
-            imagen: 'https://www.dropbox.com/s/8r2n85oiob7xtez/AFI3.png?dl=0&raw=1'
-          }*/
-        ]
+        items:[]
       }
     },
 
     methods:{
+      inscribir: function(item){
+        this.$router.push({name:'inscripcion',params: {id:item.id}});
+      },
       get_carrusel:function(){
         // "https://admin.aulaperu.edu.pe/api/contenedors/1"
         //"http://localhost:8000/api/contenedors/1"
@@ -43,7 +36,9 @@
         .then(response => {
           this.items = response.data.data.contenedors.items;
         })
-        .catch(error => {});
+        .catch(error => {
+          console.log(error);
+        });
       }
     }
   }

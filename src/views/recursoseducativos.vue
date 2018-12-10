@@ -1,7 +1,9 @@
 <template>
     <v-card flat tile height="100%">
-      <h2 class="text-sm-center px-2 white--text red darken-4">Recursos Educativos</h2>
+      <h2 class="text-sm-center px-2 white--text red darken-4"><i class="fas fa-swatchbook"></i> Recursos Educativos</h2>
+
         <v-container v-if="inicials.items" fluid grid-list-sm blue-grey  lighten-4 pa-0 grey lighten-3>
+            <p class="py-3 px-4 mb-0" style="text-align: justify;">Los Recursos Educativos que genera Aula Perú TIC, son aplicaciones realizadas utilizando el Software Educativo que planteamos dentro del catálogo de cursos disponibles en nuestra plataforma.</p>
             <v-subheader class="font-weight-boldfont-weight-black font-italic">
                 INICIAL
             </v-subheader>
@@ -18,6 +20,8 @@
                             <v-btn @click="verRevista(inicial.embed)" color="primary" dark>
                             ver <v-icon right dark>fas fa-eye</v-icon>
                             </v-btn>
+                            <v-btn color="primary" icon @click="share_fb(inicial.embed)"><v-icon>fab fa-facebook-f</v-icon></v-btn>
+                            <v-btn color="blue lighten-1" class="white--text" icon @click="share_tw(inicial.embed)"><v-icon>fab fa-twitter</v-icon></v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -38,6 +42,8 @@
                             <v-btn @click="verRevista(primaria.embed)" color="primary" dark>
                             ver <v-icon right dark>fas fa-eye</v-icon>
                             </v-btn>
+                            <v-btn color="primary" icon @click="share_fb(primaria.embed)"><v-icon>fab fa-facebook-f</v-icon></v-btn>
+                            <v-btn color="blue lighten-1" class="white--text" icon @click="share_tw(primaria.embed)"><v-icon>fab fa-twitter</v-icon></v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -58,6 +64,8 @@
                             <v-btn @click="verRevista(secundaria.embed)" color="primary" dark>
                             ver <v-icon right dark>fas fa-eye</v-icon>
                             </v-btn>
+                            <v-btn color="primary" icon @click="share_fb(secundaria.embed)"><v-icon>fab fa-facebook-f</v-icon></v-btn>
+                            <v-btn color="blue lighten-1" class="white--text" icon @click="share_tw(secundaria.embed)"><v-icon>fab fa-twitter</v-icon></v-btn>
                         </v-card-actions>
                     </v-card>
                 </v-flex>
@@ -103,6 +111,14 @@ export default {
 
     },
     methods:{
+        share_fb:function(url){
+            window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(url)+
+            '&t=AulaPeruTic', 'ventanacompartir', 'toolbar=0, status=0, width=650, height=450');
+        },
+        share_tw:function(url){
+            window.open('http://twitter.com/home?status='+encodeURIComponent(url),
+            'Compartir en twiter', 'toolbar=0, status=0, width=650, height=450');
+        },
         verRevista(urlembed){
             this.liveUrl=urlembed
             this.modalRevista=true

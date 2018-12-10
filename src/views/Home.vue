@@ -1,10 +1,10 @@
 <template>
 <div>
     <Slider1/>
-      <v-layout row wrap>
+      <v-layout row wrap mb-4>
         <v-flex xs12 md6 lg4>
           <v-card dark class="text-sm-center pa-3 grey darken-1">
-            <i class="fas fa-desktop fa-2x"></i> Plataforma
+            <a href="https://sitaav.org" style="text-decoration: none;" class="white--text" target="_blank"><i class="fas fa-desktop fa-2x"></i> Plataforma</a>
           </v-card>
         </v-flex>
         <v-flex xs12 md6 lg4>
@@ -29,18 +29,18 @@
             <v-img :src="imagen.imagen" height="315px">
                 <div class="layout align-end fill-height px-2">
                     <h5 class="body-1 white--text text-sm-center px-2" v-text="imagen.descripcion"
-                    style="background-color: #03030366; width: 100%;"></h5>
+                    style="background-color: rgba(3, 3, 3, 0.7); width: 100%;"></h5>
                 </div>
             </v-img>
           </v-card>
         </v-flex>
       </v-layout>
-      <v-layout row wrap class="mt-2">
+      <v-layout row wrap class="mt-4">
         <v-flex xs12 dark class="red darken-4 pa-2">
-          <h3 class="white--text text-sm-center">NUESTROS PLANES 2019</h3>
+          <h3 class="white--text text-sm-center"><i class="fas fa-hand-holding-usd fa-2x mr-2"></i> NUESTROS PLANES 2019</h3>
         </v-flex>
       </v-layout>
-      <v-container  grid-list-sm>
+      <v-container pa-0  grid-list-sm>
         <Planes1/>
       </v-container>
 </div>

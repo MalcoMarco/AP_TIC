@@ -4,7 +4,7 @@
     <v-toolbar color="red darken-3" dark dense fixed clipped-left app >
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <a href="/" class="d-flex router-link-active">
-        <img src="https://www.dropbox.com/s/3rjtygkx4elu14d/android-icon-48x48.png?dl=0&raw=1" 
+        <img src="https://sitaav.org/img/logocomunidad.png" 
         width="36px" height="36px">
       </a>
       <v-toolbar-title class="mr-5 align-center">

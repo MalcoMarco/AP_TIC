@@ -12,7 +12,7 @@
           </v-list-tile-action>
           <v-list-tile-content>
             <v-list-tile-title>
-              {{ item.text }}
+              {{ item.text.toUpperCase() }}
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
@@ -21,7 +21,7 @@
           <v-list-tile-action>
             <v-icon>fas fa-phone</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title class="">Contactanos</v-list-tile-title>
+          <v-list-tile-title class="">CONTÁCTANOS</v-list-tile-title>
         </v-list-tile>
 
         <v-subheader class="mt-3">Plataforma</v-subheader>
@@ -29,7 +29,7 @@
           <v-list-tile-action>
             <v-icon>add_circle_outline</v-icon>
           </v-list-tile-action>
-          <v-list-tile-title class="">Sitaav</v-list-tile-title>
+          <v-list-tile-title class="">SITAAV</v-list-tile-title>
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>

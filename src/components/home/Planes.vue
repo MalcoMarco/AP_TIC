@@ -4,10 +4,10 @@
                 <v-card height="100%">
                     <v-card-title primary-title>
                         <div class="text-xs-center">
-                            <h3 class="headline mb-2 blue--text text--darken-3">
+                            <h3 class="headline mb-2 cyan--text">
                                 <i :class="plan.icon" > </i>
                             </h3>
-                            <p class="subheading red darken-3 white--text" v-html="plan.name"></p>
+                            <p class="subheading red darken-3 white--text py-1" v-html="plan.name" style="border-radius: 10px;"></p>
                             <p class="blue-grey lighten-4"><span class="body-2" v-text="plan.sub"></span> </p>
                         </div>
                     </v-card-title>
